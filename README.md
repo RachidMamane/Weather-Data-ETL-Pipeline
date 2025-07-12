@@ -136,6 +136,17 @@ Cron is a time-based job scheduler.
 5.  **Database Container:** As with cron, your PostgreSQL Docker container must be running for the scheduled task to connect to the database.
 
 ## Project Structure
+Weather-Data-ETL-Pipeline/
+├── .env                # Stores environment variables (API keys, DB credentials)
+├── docker-compose.yml  # Defines the PostgreSQL service for Docker
+├── main.py             # Main entry point for orchestrating the ETL pipeline
+├── requirements.txt    # Lists all Python package dependencies
+├── cron.log            # (Will be created by cron) Logs output and errors from scheduled runs
+└── etl_pipeline/       # Directory containing the core ETL logic modules
+├── init.py     # Marks 'etl_pipeline' as a Python package
+├── extract.py      # Handles data extraction from the OpenWeatherMap API
+├── transform.py    # Responsible for data cleaning and transformations
+└── load.py         # Manages loading processed data into the PostgreSQL database
 ## Technologies Used
 
 * **Python 3.9+**
