@@ -1,0 +1,22 @@
+services:
+  postgre :
+    image : postgres:13 
+    container_name : postgres
+    environment : 
+      POSTGRES_USER : Rachid
+      POSTGRES_PASSWORD : Weather
+      POSTGRES_DB : Weather_DB
+    volumes : 
+      - postgres-db-volume:/var/lib/postgresql/data 
+    healthcheck : 
+      test : ["CMD" , "pg_isready" , "-U" ,"Rachid" ]
+      interval : 5s 
+      retries : 5 
+    restart : always 
+    ports :
+       - "5432:5432"
+volumes:
+  postgres-db-volume:
+
+      
+    
